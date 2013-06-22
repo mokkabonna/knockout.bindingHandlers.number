@@ -1,0 +1,6 @@
+{
+    "globals": {
+        "test": true,
+        "module": true
+    }
+}
