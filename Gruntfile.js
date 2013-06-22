@@ -28,7 +28,7 @@
 		grunt.loadNpmTasks('grunt-bower-task');
 
 		// Default task(s).
-		grunt.registerTask('test', ['bower:install', 'jshint', 'qunit', 'watch:scripts']);
+		grunt.registerTask('test', ['jshint', 'qunit', 'watch:scripts']);
 		grunt.registerTask('default', ['bower:install', 'qunit', 'jshint']);
 	};
 })();
