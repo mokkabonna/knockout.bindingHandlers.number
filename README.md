@@ -13,6 +13,10 @@ JS
 	});
 
 
+This binding is written in AMD. Just require it to init it. It will attach itself to knockout globally. No need to require it more than once.
+
+	define(['somefolder/number'])
+
 ## Behaviour
 
 
