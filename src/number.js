@@ -1,4 +1,4 @@
-define(['knockout', 'jquery'], function(ko, $) {
+define(['knockout'], function(ko) {
 	'use strict';
 	ko.bindingHandlers.number = {
 		init: function(element, valueAccessor) {
