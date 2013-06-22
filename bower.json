@@ -11,6 +11,7 @@
     "knockout-2.1.0": "http://knockoutjs.com/downloads/knockout-2.1.0.js"
   },
   "devDependencies": {
-    "jquery": "~2.0.2"
+    "jquery": "~2.0.2",
+    "requirejs": "2.0.6"
   }
 }
