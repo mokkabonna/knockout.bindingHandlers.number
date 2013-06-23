@@ -17,8 +17,7 @@
 				}
 			},
 			bower: {
-				install: {
-				}
+				install: {}
 			}
 		});
 
@@ -29,6 +28,6 @@
 
 		// Default task(s).
 		grunt.registerTask('test', ['jshint', 'qunit', 'watch:scripts']);
-		grunt.registerTask('default', ['bower:install', 'qunit', 'jshint']);
+		grunt.registerTask('default', ['bower:install', 'jshint', 'qunit']);
 	};
 })();
