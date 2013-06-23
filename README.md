@@ -41,8 +41,10 @@ There is a demo html in the repo. demo/index.html
 
 ## Dependencies
 
-- knockout 2.0.0+w
-- jquery 1.8.1
+- knockout
+- jquery
+
+For accurate versions check bower.json
 
 ## Contributing
 
