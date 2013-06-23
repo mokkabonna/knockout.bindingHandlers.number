@@ -1,11 +1,20 @@
 {
   "name": "knockout.bindingHandlers.number",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/number.js",
   "ignore": [
-    "**/.*",
+    "test",
     "node_modules",
-    "components"
+    "demo",
+    "Gruntfile.js",
+    ".bowerrc",
+    ".gitignore",
+    "package.json",
+    ".editorconfig",
+    "lib",
+    "components",
+    ".bowerrc",
+    "src/jquery.noglobals.js"
   ],
   "dependencies": {
     "knockout-2.1.0": "http://knockoutjs.com/downloads/knockout-2.1.0.js",
