@@ -1,104 +1,113 @@
 define(['knockout', 'jquery', 'number'], function(ko, $, number) {
-	var input;
+	var input, input2;
 
-	function sharedSetup(initVal) {
-		return function() {
-			this.viewModel = {
-				numeric: ko.observable(initVal)
-			};
-			input = $('#numberInput');
-			ko.applyBindings(this.viewModel);
+
+	// Patch $el.is(':focus') until PhantomJS supports it properly.
+	// https://code.google.com/p/phantomjs/issues/detail?id=427
+
+	function fixPhantomJSFocus() {
+		var self = this;
+		self._jQuery_is = $.fn.is;
+
+		$.fn.is = function(s) {
+			if (s === ':focus') {
+				return this.get(0) === document.activeElement;
+			}
+			return self._jQuery_is.apply(this, arguments);
 		};
 	}
 
-	module('knockout number binding, init with string', {
-		setup: sharedSetup('abc677agaf32')
-	});
+	function makeTargetFormat(value, type) {
+		if (type === 'string') return value;
+		if (type === 'number') return value * 1;
+	}
 
-	test('strips non digit numbers', function() {
-		input.val('123abc456');
-		ko.utils.triggerEvent(input[0], 'change');
-		equal(input.val(), '123456');
-	});
+	//shared testcases with different input values
 
-	test('updates value to observable in original format (string)', function() {
-		input.val('a123a4');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(this.viewModel.numeric(), '1234');
-	});
+	function testCase(initValue) {
+		var observableTargetType = typeof initValue === 'string' ? 'string' : 'number';
+		var type = typeof initValue;
 
-	test('change in the observable is reflected in the input', function() {
-		this.viewModel.numeric('500aa');
-		deepEqual(input.val(), '500');
-	});
+		module('knockout number binding, init with ' + initValue + ' (' + type + ')', {
+			setup: function() {
+				fixPhantomJSFocus();
 
-	test('change in the observable to a non string value will not affect init behaviour', function() {
-		this.viewModel.numeric(500);
-		input.val('a123a4');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(this.viewModel.numeric(), '1234');
-	});
+				this.viewModel = {
+					numeric: ko.observable(initValue)
+				};
+				input = $('#numberInput');
+				input2 = $('#numberInput2');
+				ko.applyBindings(this.viewModel);
+			},
+			tearDown: function() {
+				//restore phantomjs fix in jquery
+				$.fn.is = this._jQuery_is;
+			}
+		});
 
-	module('knockout number binding, init with number', {
-		setup: sharedSetup(123)
-	});
+		test('strips non digit numbers', function() {
+			input.val('123abc456');
+			input.trigger('change');
+			equal(input.val(), '123456');
+		});
 
-	test('strips non digit numbers', function() {
-		input.val('123abc456');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(input.val(), '123456');
-	});
+		test('updates value to observable in original format (' + observableTargetType + ')', function() {
+			input.val('a123a4');
+			input.trigger('change');
+			deepEqual(this.viewModel.numeric(), makeTargetFormat('1234', observableTargetType));
+		});
 
-	test('updates value to observable', function() {
-		input.val('a123a4');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(this.viewModel.numeric(), 1234);
-	});
+		test('change in the observable is reflected in the input', function() {
+			this.viewModel.numeric('500aa');
+			deepEqual(input.val(), '500');
+		});
 
-	test('change in the observable is reflected in the input', function() {
-		this.viewModel.numeric(500);
-		deepEqual(input.val(), '500');
-	});
+		asyncTest('change in the observable is reflected in the input only if it do not have focus', function() {
+			expect(4);
+			var obs = this.viewModel.numeric;
 
-	test('change in the observable to a non number value will not affect init behaviour', function() {
-		this.viewModel.numeric('500aa');
-		input.val('a123a4');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(this.viewModel.numeric(), 1234);
-	});
+			obs('500');
+			input2.focus();
+			input2.val('500aa4');
+			input2.trigger('keydown');
 
-	module('knockout number binding, init with nothing', {
-		setup: sharedSetup()
-	});
+			ok(input2.is(':focus'), 'the element do have focus');
 
-	test('strips non digit numbers', function() {
-		input.val('123abc456');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(input.val(), '123456');
-	});
+			setTimeout(function() {
+				deepEqual(obs(), makeTargetFormat('5004', observableTargetType)); //observable should be updated
+				deepEqual(input2.val(), '500aa4'); //but input should not be changed before change event
+				input2.blur();
+				input2.trigger('change');
+				deepEqual(input2.val(), '5004'); //now it should have changed
+				start();
 
-	test('updates value to observable', function() {
-		input.val('a123a4');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(this.viewModel.numeric(), 1234);
-	});
+			}, 1);
+		});
 
-	test('an empty string is reflected as undefined', function() {
-		input.val('');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(this.viewModel.numeric(), undefined);
-	});
+		test('change in the observable to a different type than ' + observableTargetType + ' will not affect init behaviour', function() {
+			this.viewModel.numeric(500);
+			input.val('a123a4');
+			input.trigger('change');
+			deepEqual(this.viewModel.numeric(), makeTargetFormat('1234', observableTargetType));
+		});
 
-	test('change in the observable is reflected in the input', function() {
-		this.viewModel.numeric(342);
-		deepEqual(input.val(), '342');
-	});
+		asyncTest('works with valueUpdate', 1, function() {
+			var obs = this.viewModel.numeric;
+			input2.val('ab56aa78--');
+			input2.trigger('keydown');
+			setTimeout(function() {
+				deepEqual(obs(), makeTargetFormat('5678', observableTargetType));
+				start();
+			}, 1);
+		});
+	}
 
-	test('change in the observable to a non number value will not affect init behaviour', function() {
-		this.viewModel.numeric('500aa');
-		input.val('a123a4');
-		ko.utils.triggerEvent(input[0], 'change');
-		deepEqual(this.viewModel.numeric(), 1234); //still converted to number, not string
-	});
+
+	//Setup the actual tests
+	testCase('1234'); //testing when the input is a string
+	testCase('abc677agaf32'); //testing when the input is a polluted string
+	testCase(123); //when it's a number
+	testCase(undefined); //when it's undefinel
+	testCase(null); //when it's null
 
 });
