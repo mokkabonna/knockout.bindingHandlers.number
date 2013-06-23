@@ -6,7 +6,7 @@ define(['knockout', 'jquery'], function(ko, $) {
 			var val = ko.utils.unwrapObservable(variable);
 			var type = typeof val;
 			var isNumber = type === 'number';
-			var updateAsNumber =  type !== 'string';
+			var updateAsNumber = type !== 'string';
 
 			//listen to change event by default, and any events defined in valueUpdate, space separated string or an array
 			var events = ['change'];

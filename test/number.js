@@ -28,7 +28,7 @@ define(['knockout', 'jquery', 'number'], function(ko, $, number) {
 		var observableTargetType = typeof initValue === 'string' ? 'string' : 'number';
 		var type = typeof initValue;
 
-		module('knockout number binding, init with ' + initValue + ' (' + type + ')', {
+		module('Init with ' + initValue + ' (' + type + ')', {
 			setup: function() {
 				fixPhantomJSFocus();
 
@@ -102,6 +102,13 @@ define(['knockout', 'jquery', 'number'], function(ko, $, number) {
 		});
 	}
 
+	module('General');
+
+	test('AMD module returns knockout', 1, function() {
+		require(['number', 'knockout'], function(knockoutFromNumber, knockout) {
+			deepEqual(knockoutFromNumber, knockout);
+		});
+	});
 
 	//Setup the actual tests
 	testCase('1234'); //testing when the input is a string
