@@ -27,13 +27,15 @@
 						base: ''
 					}
 				}
-			}
+			},
+			clean: ["components", "lib", "node_modules"]
 		});
 
 		grunt.loadNpmTasks('grunt-contrib-qunit');
 		grunt.loadNpmTasks('grunt-contrib-jshint');
 		grunt.loadNpmTasks('grunt-contrib-watch');
 		grunt.loadNpmTasks('grunt-contrib-connect');
+		grunt.loadNpmTasks('grunt-contrib-clean');
 		grunt.loadNpmTasks('grunt-bower-task');
 
 		// Default task(s).
