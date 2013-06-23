@@ -13,9 +13,11 @@ JS
 	});
 
 
-This binding is written in AMD. Just require it to init it. It will attach itself to knockout globally. No need to require it more than once.
+This binding is written in AMD. Just require it to init it. It will attach itself to knockout globally. No need to require it more than once. It will also return knockout.
 
-	define(['somefolder/number'])
+	define(['somefolder/number'], function(ko){
+		//use knockout
+	});
 
 ## Behaviour
 
@@ -23,17 +25,31 @@ This binding is written in AMD. Just require it to init it. It will attach itsel
 If the observable on init contains a string then the value inserted into the input will also initially be stripped of any non digit characters. 
 
 
-When the change event fires on the input, all non numerical characters are stripped and reflected back to the observable. If the original value was a string, the reflected value will also be a string.
+When the change event fires on the input, all non digits are stripped and reflected back to the observable. If the original value was a string, the reflected value will also be a string. Empty string when input is empty.
 
-If the observable was a number or undefined, then the value inserted in the observable after a change will be parsed to a number. (Or set to undefined if the input is empty);
+Otherwise it will be converted to a number and put in the observable. If no digits in the input the value will be undefined.
 
 
+### valueUpdate
+
+This binding supports the valueUpdate binding. If for instance you use afterkeydown the value of the input will immediately be stripped of non digits and updated to the observable. The input will still have the value you typed as long as it has focus.
+
+
+## Demo
+
+There is a demo html in the repo. demo/index.html
+
+## Dependencies
+
+- knockout 2.0.0+w
+- jquery 1.8.1
 
 ## Contributing
 
 Clone, then run (assuming you have node)
 
     npm install
+    grunt bower //this is to install all bower packages
 
 You can now use grunt to run tests, lint etc.
 
