@@ -11,9 +11,6 @@
 				all: ['test/**/*.html']
 			},
 			watch: {
-				options: {
-					livereload: true
-				},
 				scripts: {
 					files: ['**/*.js', 'test/**', 'demo/**'],
 					tasks: ['qunit', 'jshint']
