@@ -1,5 +1,6 @@
 define(['knockout', 'jquery'], function(ko, $) {
 	'use strict';
+
 	ko.bindingHandlers.number = {
 		init: function(element, valueAccessor, allBindings) {
 			var variable = valueAccessor();
@@ -11,10 +12,10 @@ define(['knockout', 'jquery'], function(ko, $) {
 			//listen to change event by default, and any events defined in valueUpdate, space separated string or an array
 			var events = ['change'];
 			var extraEvents = allBindings().valueUpdate ? ko.utils.unwrapObservable(allBindings().valueUpdate) : [];
-			extraEvents = Array.isArray(extraEvents) ? extraEvents : extraEvents.split(' ');
-			events = events.concat(extraEvents);
+			extraEvents = Array.isArray(extraEvents) ? extraEvents : extraEvents.split(' '); //accept an array, or a space separated string of events
+			events = events.concat(extraEvents); //we now have all events
 
-			var asyncEvents = [];
+			var asyncEvents = []; //what events are async
 			var newEvents = [];
 			events.forEach(function(e) {
 				if (e.indexOf('after') === 0) {
@@ -28,10 +29,11 @@ define(['knockout', 'jquery'], function(ko, $) {
 
 			function updateObservable(event) {
 				var onlyDigits = ko.bindingHandlers.number.replace(element.value);
-				if (event === 'change') element.value = onlyDigits;
+				if (event === 'change') element.value = onlyDigits; //only updte the input itself when the change event is fired
 				if (ko.isObservable(variable)) variable(updateAsNumber ? onlyDigits === '' ? undefined : parseInt(onlyDigits, 10) : onlyDigits);
 			}
 
+			//listen to all events supplied
 			$(element).on(newEvents.join(' '), function(e) {
 				var type = e.type;
 				if (asyncEvents.indexOf(type) !== -1) {
@@ -52,13 +54,13 @@ define(['knockout', 'jquery'], function(ko, $) {
 			var variable = valueAccessor();
 			var type = typeof ko.utils.unwrapObservable(variable);
 			var isNumber = type === 'number';
-			var updateAsNumber = type !== 'string';
 
 			//only update input itself if it does not have focus, we don't want altering text before change event
 			if (!$(element).is(':focus')) {
 				element.value = isNumber ? ko.utils.unwrapObservable(variable) : ko.bindingHandlers.number.replace(ko.utils.unwrapObservable(variable));
 			}
 		},
+		//reusable replace function
 		replace: function(val) {
 			return (val || '').replace(/[^\d]/g, '');
 		}

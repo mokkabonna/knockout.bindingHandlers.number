@@ -1,4 +1,5 @@
 {
+	"unused" : true,
 	"globals": {
 		"define": true,
 		"require": true,
