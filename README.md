@@ -39,6 +39,11 @@ This binding supports the valueUpdate binding. If for instance you use afterkeyd
 
 There is a demo html in the repo. demo/index.html
 
+Make sure to run these commands before install to have all the assets
+
+	npm install
+	grunt bower
+
 ## Dependencies
 
 - knockout
