@@ -8,10 +8,10 @@
     "components"
   ],
   "dependencies": {
-    "knockout-2.1.0": "http://knockoutjs.com/downloads/knockout-2.1.0.js"
+    "knockout-2.1.0": "http://knockoutjs.com/downloads/knockout-2.1.0.js",
+    "jquery": "~1.7.1"
   },
   "devDependencies": {
-    "jquery": "~2.0.2",
     "requirejs": "2.0.6",
     "qunit": "~1.11.0",
     "bootstrap": "~2.3.2"
