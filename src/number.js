@@ -1,5 +1,6 @@
 define(['knockout', 'jquery'], function(ko, $) {
 	'use strict';
+	var replace;
 
 	ko.bindingHandlers.number = {
 		init: function(element, valueAccessor, allBindings) {
@@ -28,7 +29,7 @@ define(['knockout', 'jquery'], function(ko, $) {
 			//update the observable, if the original value was a number or undefined, then update it as a number
 
 			function updateObservable(event) {
-				var onlyDigits = ko.bindingHandlers.number.replace(element.value);
+				var onlyDigits = replace(element.value);
 				if (event === 'change') element.value = onlyDigits; //only updte the input itself when the change event is fired
 				if (ko.isObservable(possibleObservable)) possibleObservable(updateAsNumber ? onlyDigits === '' ? undefined : parseInt(onlyDigits, 10) : onlyDigits);
 			}
@@ -48,7 +49,7 @@ define(['knockout', 'jquery'], function(ko, $) {
 			});
 
 			//if a number just assign the number as it, it will be converted to a string, if not then first strip any non digit values from the beginning
-			element.value = isNumber ? ko.utils.unwrapObservable(possibleObservable) : ko.bindingHandlers.number.replace(ko.utils.unwrapObservable(possibleObservable));
+			element.value = isNumber ? value : replace(value);
 		},
 		update: function(element, valueAccessor) {
 			var variable = valueAccessor();
@@ -57,15 +58,15 @@ define(['knockout', 'jquery'], function(ko, $) {
 			var isNumber = type === 'number';
 
 			//only update input itself if it does not have focus, we don't want altering text before change event
-			if (!$(element).is(':focus')) {
-				element.value = isNumber ? value : ko.bindingHandlers.number.replace(ko.utils.unwrapObservable(variable));
-			}
+			if (!$(element).is(':focus')) element.value = isNumber ? value : replace(value);
 		},
 		//reusable replace function
 		replace: function(val) {
 			return (val || '').replace(/[^\d]/g, '');
 		}
 	};
+
+	replace = ko.bindingHandlers.number.replace;
 
 	return ko;
 });
