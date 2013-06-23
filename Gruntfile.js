@@ -11,19 +11,32 @@
 				all: ['test/**/*.html']
 			},
 			watch: {
+				options: {
+					livereload: true
+				},
 				scripts: {
-					files: ['**/*.js', 'test/**'],
+					files: ['**/*.js', 'test/**', 'demo/**'],
 					tasks: ['qunit', 'jshint']
 				}
 			},
 			bower: {
 				install: {}
+			},
+			connect: {
+				server: {
+					options: {
+						keepalive: true,
+						port: 9001,
+						base: ''
+					}
+				}
 			}
 		});
 
 		grunt.loadNpmTasks('grunt-contrib-qunit');
 		grunt.loadNpmTasks('grunt-contrib-jshint');
 		grunt.loadNpmTasks('grunt-contrib-watch');
+		grunt.loadNpmTasks('grunt-contrib-connect');
 		grunt.loadNpmTasks('grunt-bower-task');
 
 		// Default task(s).
