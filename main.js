@@ -4,7 +4,7 @@
 	require.config({
 		baseUrl: "src",
 		paths: {
-			knockout: 'lib/knockout-2.1.0/index',
+			knockout: '../lib/knockout-2.1.0/index',
 			jquery : 'jquery.noglobals'
 		}
 	});
