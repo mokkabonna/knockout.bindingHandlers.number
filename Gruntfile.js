@@ -1,6 +1,5 @@
 (function() {
 	'use strict';
-	var path = require('path');
 	module.exports = function(grunt) {
 		// Project configuration.
 		grunt.initConfig({
@@ -19,9 +18,12 @@
 			},
 			bower: {
 				options: {
-					targetDir: 'app/vendor',
+					targetDir: 'app/vendor'
 				},
 				install: {}
+			},
+			"gh-pages": {
+				src: ['app/**/']
 			},
 			connect: {
 				server: {
@@ -41,6 +43,8 @@
 		grunt.loadNpmTasks('grunt-contrib-connect');
 		grunt.loadNpmTasks('grunt-contrib-clean');
 		grunt.loadNpmTasks('grunt-bower-task');
+		grunt.loadNpmTasks('grunt-bower-task');
+		grunt.loadNpmTasks('grunt-gh-pages');
 
 		// Default task(s).
 		grunt.registerTask('test', ['jshint', 'qunit', 'watch:scripts']);
