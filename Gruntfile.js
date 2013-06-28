@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	var path = require('path');
 	module.exports = function(grunt) {
 		// Project configuration.
 		grunt.initConfig({
@@ -17,6 +18,9 @@
 				}
 			},
 			bower: {
+				options: {
+					targetDir: 'app/vendor',
+				},
 				install: {}
 			},
 			connect: {

@@ -6,10 +6,11 @@
 	// Configure RequireJS so it resolves relative module paths from the `src`
 	// folder.
 	require.config({
-		baseUrl: "../src",
+		baseUrl: '../app',
 		paths: {
-			knockout: '../lib/knockout-2.1.0/index',
-			jquery : 'jquery.noglobals'
+			knockout: 'vendor/knockout/index',
+			jquery : 'js/jquery.noglobals',
+			number : 'js/number'
 		}
 	});
 
@@ -17,7 +18,7 @@
 	// extension so RequireJS resolves them as relative paths rather than using
 	// the `baseUrl` value supplied above.
 	var testModules = [
-			"number.js"
+			'../test/number'
 	];
 
 	// Resolve all testModules and then start the Test Runner.

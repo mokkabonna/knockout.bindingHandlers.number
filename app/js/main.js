@@ -2,10 +2,11 @@
 
 	// Configure RequireJS so it resolves relative module paths from the `src` folder.
 	require.config({
-		baseUrl: "../src",
+		baseUrl: "",
 		paths: {
-			knockout: '../lib/knockout-2.1.0/index',
-			jquery : 'jquery.noglobals'
+			knockout: 'vendor/knockout/index',
+			jquery : 'js/jquery.noglobals',
+			number : 'js/number'
 		}
 	});
 
