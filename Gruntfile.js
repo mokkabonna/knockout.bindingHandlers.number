@@ -33,7 +33,7 @@
 					options: {
 						keepalive: true,
 						port: 9001,
-						base: ''
+						base: 'app'
 					}
 				}
 			},
