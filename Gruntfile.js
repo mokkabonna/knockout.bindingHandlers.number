@@ -23,7 +23,10 @@
 				install: {}
 			},
 			"gh-pages": {
-				src: ['app/**/*']
+				options : {
+					base : 'app'
+				},
+				src: ['**']
 			},
 			connect: {
 				server: {
