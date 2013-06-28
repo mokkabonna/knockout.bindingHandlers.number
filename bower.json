@@ -23,5 +23,10 @@
     "requirejs": "2.0.6",
     "qunit": "~1.11.0",
     "bootstrap": "~2.3.2"
+  },
+  "exportsOverride": {
+    "requirejs": {
+      "js": "require.js"
+    }
   }
 }

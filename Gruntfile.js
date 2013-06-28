@@ -18,13 +18,16 @@
 			},
 			bower: {
 				options: {
-					targetDir: 'app/vendor'
+					targetDir: 'app/vendor',
+					layout: function(type, component) {
+						return component; //want any resources, js or css or any in the vendor subfolder
+					}
 				},
 				install: {}
 			},
 			"gh-pages": {
-				options : {
-					base : 'app'
+				options: {
+					base: 'app'
 				},
 				src: ['**']
 			},
@@ -37,7 +40,7 @@
 					}
 				}
 			},
-			clean: ["components", "lib", "node_modules"]
+			clean: ["components", "app/vendor", "node_modules"]
 		});
 
 		grunt.loadNpmTasks('grunt-contrib-qunit');
