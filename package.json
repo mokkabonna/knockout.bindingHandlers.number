@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "grunt-contrib-qunit": "~0.2.2",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.4.4",
     "grunt-qunit-amd": "0.0.6",
