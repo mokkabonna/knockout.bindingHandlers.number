@@ -37,12 +37,7 @@ This binding supports the valueUpdate binding. If for instance you use afterkeyd
 
 ## Demo
 
-There is a demo html in the repo. demo/index.html
-
-Make sure to run these commands before install to have all the assets
-
-	npm install
-	grunt bower
+There is a demo at http://mokkabonna.github.io/knockout.bindingsHandlers.number
 
 ## Dependencies
 
