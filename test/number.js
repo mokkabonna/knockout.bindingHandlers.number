@@ -1,6 +1,5 @@
-define(['knockout', 'jquery', 'number'], function(ko, $, number) {
+define(['knockout', 'jquery', 'js/number'], function(ko, $, number) {
 	var input, input2;
-
 
 	// Patch $el.is(':focus') until PhantomJS supports it properly.
 	// https://code.google.com/p/phantomjs/issues/detail?id=427
@@ -29,9 +28,9 @@ define(['knockout', 'jquery', 'number'], function(ko, $, number) {
 		var type = typeof initValue;
 
 		module('Init with ' + initValue + ' (' + type + ')', {
+			fixture: '<input id="numberInput" type="text" data-bind="number: numeric" /><input id="numberInput2" type="text" data-bind="number: numeric, valueUpdate: \'afterkeydown\'" />',
 			setup: function() {
 				fixPhantomJSFocus();
-
 				this.viewModel = {
 					numeric: ko.observable(initValue)
 				};
@@ -39,7 +38,7 @@ define(['knockout', 'jquery', 'number'], function(ko, $, number) {
 				input2 = $('#numberInput2');
 				ko.applyBindings(this.viewModel);
 			},
-			tearDown: function() {
+			teardown: function() {
 				//restore phantomjs fix in jquery
 				$.fn.is = this._jQuery_is;
 			}
@@ -103,10 +102,10 @@ define(['knockout', 'jquery', 'number'], function(ko, $, number) {
 	}
 
 	module('General');
-
-	test('AMD module returns knockout', 1, function() {
-		require(['number', 'knockout'], function(knockoutFromNumber, knockout) {
+	asyncTest('AMD module returns knockout', 1, function() {
+		require(['js/number', 'knockout'], function(knockoutFromNumber, knockout) {
 			deepEqual(knockoutFromNumber, knockout);
+			start();
 		});
 	});
 
