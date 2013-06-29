@@ -15,6 +15,7 @@
 			},
 			bower: {
 				options: {
+					cleanBowerDir : true,
 					targetDir: 'app/vendor',
 					layout: function(type, component) {
 						return component; //want any resources, js or css or any in the vendor subfolder
