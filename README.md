@@ -1,6 +1,6 @@
 # Number binding for knockout
 
-!(https://travis-ci.org/mokkabonna/knockout.bindingHandlers.number.png)
+![Build status](https://travis-ci.org/mokkabonna/knockout.bindingHandlers.number.png)
 
 ## Usage
 
