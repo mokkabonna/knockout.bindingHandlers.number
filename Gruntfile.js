@@ -5,7 +5,7 @@
 		grunt.initConfig({
 			pkg: grunt.file.readJSON('package.json'),
 			jshint: {
-				all: ['Gruntfile.js', 'src/**/*.js']
+				all: ['Gruntfile.js', 'app/js/**/*.js', 'test/**/*.js']
 			},
 			watch: {
 				scripts: {
