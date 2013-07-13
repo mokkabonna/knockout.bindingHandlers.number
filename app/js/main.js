@@ -11,7 +11,9 @@
 	});
 
 
-	require(['number'], function(ko) {
+	require(['knockout','number'], function(ko, numberBinding) {
+		ko.bindingHandlers.number = numberBinding; //attach the binding
+
 		var viewModel = {
 			numeric : ko.observable(111),
 			numericString : ko.observable('222'),

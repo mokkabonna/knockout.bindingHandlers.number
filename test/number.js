@@ -1,4 +1,7 @@
-define(['knockout', 'jquery', 'js/number'], function(ko, $, number) {
+define(['knockout', 'jquery', 'js/number'], function(ko, $, numberBinding) {
+
+	ko.bindingHandlers.number = numberBinding;
+
 	var input, input2;
 
 	// Patch $el.is(':focus') until PhantomJS supports it properly.
@@ -102,9 +105,9 @@ define(['knockout', 'jquery', 'js/number'], function(ko, $, number) {
 	}
 
 	module('General');
-	asyncTest('AMD module returns knockout', 1, function() {
+	asyncTest('AMD module does not return knockout, change from previous behaviour', 1, function() {
 		require(['js/number', 'knockout'], function(knockoutFromNumber, knockout) {
-			deepEqual(knockoutFromNumber, knockout);
+			notDeepEqual(knockoutFromNumber, knockout);
 			start();
 		});
 	});

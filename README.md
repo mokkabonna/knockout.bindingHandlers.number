@@ -15,9 +15,10 @@ JS
 	});
 
 
-This binding is written in AMD. Just require it to init it. It will attach itself to knockout globally. No need to require it more than once. It will also return knockout.
+This binding is written in AMD. It returns the binding object. You need to attach it yourself since this allows it to coexist with other possible bindings named number.
 
-	define(['somefolder/number'], function(ko){
+	define(['knockout', 'somefolder/number'], function(ko, numberBinding){
+		ko.bindingHandlers.number = numberBinding;
 		//use knockout
 	});
 

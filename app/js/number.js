@@ -2,7 +2,7 @@ define(['knockout', 'jquery'], function(ko, $) {
 	'use strict';
 	var replace;
 
-	ko.bindingHandlers.number = {
+	var numberBinding = {
 		init: function(element, valueAccessor, allBindings) {
 			var possibleObservable = valueAccessor();
 			var value = ko.utils.unwrapObservable(possibleObservable);
@@ -66,7 +66,8 @@ define(['knockout', 'jquery'], function(ko, $) {
 		}
 	};
 
-	replace = ko.bindingHandlers.number.replace;
+	//for better minification
+	replace = numberBinding.replace;
 
-	return ko;
+	return numberBinding;
 });
