@@ -40,7 +40,7 @@ This binding supports the valueUpdate binding. If for instance you use afterkeyd
 
 ## Demo
 
-There is a demo at http://mokkabonna.github.io/knockout.bindingsHandlers.number
+There is a demo at http://mokkabonna.github.io/knockout.bindingHandlers.number
 
 ## Dependencies
 
