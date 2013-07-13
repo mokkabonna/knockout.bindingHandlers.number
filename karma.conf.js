@@ -18,8 +18,6 @@ files = [
   {pattern: 'app/js/jquery.noglobals.js', included: false},
   {pattern: 'app/vendor/jquery/jquery.js', included: false},
   {pattern: 'app/vendor/knockout/index.js', included: false},
-  {pattern: 'app/vendor/sinon/index.js', included: true},
-  //{pattern: 'app/vendor/sinon-qunit/index.js', included: true},
   {pattern: 'test/number.js', included: false}
 ];
 
