@@ -6,7 +6,7 @@
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-clean": "~0.4.1",
-    "grunt-bower-task": "~0.2.3",
+    "grunt-bower-task": "~0.3.1",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-gh-pages": "~0.6.0",
