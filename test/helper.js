@@ -4,7 +4,7 @@
  * @param  {[type]} $ [description]
  * @return {[type]}   [description]
  */
-define(['jquery'], function($) {
+define('test/helper', ['jquery'], function($) {
 	'use strict';
 	var mod = QUnit.module;
 	var self = this;

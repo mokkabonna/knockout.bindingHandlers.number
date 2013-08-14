@@ -12,7 +12,7 @@
 	});
 
 
-	require(['../test/helper','../test/number'], function(helper, number) {
+	require(['test/helper','../test/number'], function(helper, number) {
 		window.__karma__.start();
 	});
 
