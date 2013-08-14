@@ -1,6 +1,6 @@
 # Number binding for knockout
 
-![Build status](https://travis-ci.org/mokkabonna/knockout.bindingHandlers.number.png)
+[![Build status](https://travis-ci.org/mokkabonna/knockout.bindingHandlers.number.png)](https://travis-ci.org/mokkabonna/knockout.bindingHandlers.number)
 
 ## Usage
 
@@ -25,7 +25,7 @@ This binding is written in AMD. It returns the binding object. You need to attac
 ## Behaviour
 
 
-If the observable on init contains a string then the value inserted into the input will also initially be stripped of any non digit characters. 
+If the observable on init contains a string then the value inserted into the input will also initially be stripped of any non digit characters.
 
 
 When the change event fires on the input, all non digits are stripped and reflected back to the observable. If the original value was a string, the reflected value will also be a string. Empty string when input is empty.
