@@ -26,7 +26,7 @@ module.exports = function(config) {
                 pattern: 'app/vendor/jquery/jquery.js',
                 included: false
             }, {
-                pattern: 'app/vendor/knockout/index.js',
+                pattern: 'app/vendor/knockout.js/knockout.js',
                 included: false
             }, {
                 pattern: 'test/number.js',

@@ -39,6 +39,7 @@ define(['knockout', 'jquery', 'js/number'], function(ko, $, numberBinding) {
 				};
 				input = $('#numberInput');
 				input2 = $('#numberInput2');
+				ko.cleanNode(document.body); //not sure why global teardown in helper does not take care of this... This fixes it for now
 				ko.applyBindings(this.viewModel);
 			},
 			teardown: function() {

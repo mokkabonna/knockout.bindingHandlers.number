@@ -16,7 +16,7 @@
     "app/js/jquery.noglobals.js"
   ],
   "dependencies": {
-    "knockout": "http://knockoutjs.com/downloads/knockout-2.1.0.js",
+    "knockout.js": ">=2.0.0",
     "jquery": ">=1.7.0"
   },
   "devDependencies": {

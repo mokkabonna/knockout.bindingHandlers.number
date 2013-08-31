@@ -4,7 +4,7 @@
 	require.config({
 		baseUrl: "",
 		paths: {
-			knockout: 'vendor/knockout/index',
+			knockout: 'vendor/knockout.js/knockout',
 			jquery : 'js/jquery.noglobals',
 			number : 'js/number'
 		}
