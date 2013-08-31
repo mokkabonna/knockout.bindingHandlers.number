@@ -85,7 +85,7 @@
 		// Default task(s).
 		grunt.registerTask('test', ['jshint', 'karma:standard']);
 		grunt.registerTask('develop', ['jshint', 'karma:server', 'watch:scripts']);
-		grunt.registerTask('test:full', ['jshint', 'bower-verify']);
+		grunt.registerTask('test:full', ['jshint', 'bower:install', 'bower-verify']);
 		grunt.registerTask('default', ['bower:install', 'jshint', 'karma:once']);
 	};
 })();
