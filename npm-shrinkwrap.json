@@ -2,7 +2,7 @@
 	"dependencies": {
 		"grunt-bower-task": {
 			"version": "0.3.1",
-			"from": "grunt-bower-task@~0.3.1",
+			"from": "https://github.com/mokkabonna/grunt-karma/archive/master.tar.gz",
 			"dependencies": {
 				"bower": {
 					"version": "~1.2.0",

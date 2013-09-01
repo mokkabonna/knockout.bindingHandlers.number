@@ -41,24 +41,19 @@
 				src: ['**']
 			},
 			karma: {
-				server: {
+				options: {
 					configFile: 'karma.conf.js',
-					background: true,
-					runnerPort: 9999,
-					port: 9998, //specific port for phantomjs only
 					browsers: ['PhantomJS']
+				},
+				server: {
+					background: true,
 				},
 				once: {
-					configFile: 'karma.conf.js',
-					runnerPort: 9888,
-					singleRun: true,
-					port: 9887, //specific port for phantomjs only
-					browsers: ['PhantomJS']
+					background:true,
+					wait:true,
+					singleRun:true,
 				},
 				standard: {
-					configFile: 'karma.conf.js',
-					background: false,
-					browsers: ['PhantomJS']
 				}
 			},
 			connect: {
