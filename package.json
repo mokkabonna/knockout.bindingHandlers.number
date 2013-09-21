@@ -20,7 +20,7 @@
     "karma-coffee-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.1",
-    "grunt-bower-verify": "~0.2.4"
+    "grunt-bower-verify": "~0.3.0"
   },
   "scripts": {
     "test": "grunt test:full"
