@@ -3,34 +3,29 @@
   "version": "2.0.1",
   "main": "app/js/number.js",
   "ignore": [
-    "test",
-    "node_modules",
-    "Gruntfile.js",
-    ".bowerrc",
-    ".gitignore",
-    "package.json",
-    ".editorconfig",
-    "app/vendor",
-    "components",
-    ".bowerrc",
-    "app/js/jquery.noglobals.js"
+	"test",
+	"node_modules",
+	"Gruntfile.js",
+	".bowerrc",
+	".gitignore",
+	"package.json",
+	".editorconfig",
+	"app/vendor",
+	"components",
+	".bowerrc",
+	"app/js/jquery.noglobals.js"
   ],
   "dependencies": {
-    "knockout.js": ">=2.0.0",
-    "jquery": ">=1.9.0"
+	"knockout.js": ">=2.0.0",
+	"jquery": ">=1.9.0"
   },
   "devDependencies": {
-    "requirejs": "2.0.6",
-    "qunit": "~1.12.0",
-    "bootstrap": "~3.0.0"
+	"requirejs": "~2.1.0",
+	"bootstrap": "~3.0.0"
   },
   "exportsOverride": {
-    "requirejs": {
-      "js": "require.js"
-    },
-    "qunit": {
-      "js": "qunit/qunit.js",
-      "css": "qunit/qunit.css"
-    }
+	"requirejs": {
+	  "js": "require.js"
+	}
   }
 }

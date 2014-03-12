@@ -31,7 +31,7 @@
 			},
 			"bower-verify": {
 				test: {
-					tasks: ['bower:verify', 'karma:once']
+					tasks: ['karma:once']
 				}
 			},
 			"gh-pages": {
@@ -54,6 +54,7 @@
 					singleRun:true,
 				},
 				standard: {
+					singleRun: true,
 				}
 			},
 			connect: {
