@@ -49,8 +49,6 @@
 					background: true,
 				},
 				once: {
-					background:true,
-					wait:true,
 					singleRun:true,
 				},
 				standard: {
