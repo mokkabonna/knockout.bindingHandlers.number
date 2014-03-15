@@ -6,21 +6,25 @@
 
 HTML
 
-	<input type="text" data-bind="number : myNumber" >
+    <input data-bind="number: myobs" >
 
 JS
 
-	ko.applyBindings({
-		myNumber : ko.observable()
-	});
+    ko.applyBindings({
+        myobs : ko.observable()
+    });
 
 
-This binding is written in AMD. It returns the binding object. You need to attach it yourself since this allows it to coexist with other possible bindings named number.
+This binding is written in AMD. It returns the binding object. It will attach itself to `knockout.bindingHandlers.number` once required for the first time. This can be overridden with a config section in your requirejs config like shown below.
 
-	define(['knockout', 'somefolder/number'], function(ko, numberBinding){
-		ko.bindingHandlers.number = numberBinding;
-		//use knockout
-	});
+```
+requirejs.config({
+    config: {
+        'bower_components/knockout.bindingHandlers.number/src/number': {
+            name: 'someOtherName'
+    }
+});
+```
 
 ## Behaviour
 
@@ -53,9 +57,8 @@ For accurate versions check bower.json
 
 Clone, then run (assuming you have node)
 
-    npm install
-    grunt bower //this is to install all bower packages
+    npm install & bower install
 
-You can now use grunt to run tests, lint etc.
+You can now use grunt develop for a ready made watch task for development. Tests, linting..
 
-    grunt
+    grunt develop

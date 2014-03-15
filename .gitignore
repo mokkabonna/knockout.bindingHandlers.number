@@ -1,5 +1,1 @@
-/components
-/node_modules
-.tern-port
-/app/vendor
-/.grunt
+bower_components

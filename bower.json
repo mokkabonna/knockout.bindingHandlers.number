@@ -1,31 +1,15 @@
 {
   "name": "knockout.bindingHandlers.number",
-  "version": "2.0.1",
-  "main": "app/js/number.js",
+  "main": "src/number.js",
+  "version": "3.0.0",
   "ignore": [
-	"test",
-	"node_modules",
-	"Gruntfile.js",
-	".bowerrc",
-	".gitignore",
-	"package.json",
-	".editorconfig",
-	"app/vendor",
-	"components",
-	".bowerrc",
-	"app/js/jquery.noglobals.js"
+    "**/*"
   ],
   "dependencies": {
-	"knockout.js": ">=2.0.0",
-	"jquery": ">=1.9.0"
+    "knockout.js": ">=2.1.0",
+    "jquery": "~2.1.0"
   },
   "devDependencies": {
-	"requirejs": "~2.1.0",
-	"bootstrap": "~3.0.0"
-  },
-  "exportsOverride": {
-	"requirejs": {
-	  "js": "require.js"
-	}
+    "requirejs": "*"
   }
 }
