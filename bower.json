@@ -1,13 +1,13 @@
 {
   "name": "knockout.bindingHandlers.number",
   "main": "src/number.js",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "ignore": [
     "**/*"
   ],
   "dependencies": {
     "knockout.js": ">=2.1.0",
-    "jquery": "~2.1.0"
+    "jquery": ">=1.7.0"
   },
   "devDependencies": {
     "requirejs": "*"
