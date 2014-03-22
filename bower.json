@@ -1,7 +1,7 @@
 {
   "name": "knockout.bindingHandlers.number",
   "main": "src/number.js",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "ignore": [
     "node_modules",
     "spec",
