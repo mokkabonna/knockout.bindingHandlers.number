@@ -15,5 +15,13 @@
   },
   "devDependencies": {
     "requirejs": "*"
-  }
+  },
+  "keywords": [
+    "knockout",
+    "knockout.js",
+    "binding",
+    "bindingHandlers",
+    "amd",
+    "number"
+  ]
 }
