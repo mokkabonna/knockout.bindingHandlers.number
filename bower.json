@@ -10,8 +10,8 @@
     "package.json"
   ],
   "dependencies": {
-    "knockout.js": ">=2.1.0",
-    "jquery": ">=1.7.0"
+    "jquery": ">=1.7.0",
+    "knockout": ">=3.1.0"
   },
   "devDependencies": {
     "requirejs": "*"
