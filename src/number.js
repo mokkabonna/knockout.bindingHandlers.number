@@ -1,5 +1,5 @@
 /* jshint boss:true*/
-define(['knockout', 'module'], function(ko, module) {
+define(['knockout', 'module', 'jquery'], function(ko, module, $) {
   'use strict';
 
   var bindingName = module.config().name || 'number';
