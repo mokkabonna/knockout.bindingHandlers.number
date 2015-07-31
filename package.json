@@ -8,7 +8,6 @@
     "load-grunt-tasks": "*",
     "grunt-contrib-jshint": "*",
     "grunt-karma": "*",
-    "grunt-bower": "*",
     "grunt-bower-verify": "*",
     "karma-requirejs": "*",
     "karma-phantomjs-launcher": "*",
