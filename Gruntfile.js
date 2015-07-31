@@ -19,7 +19,7 @@
           tasks: ['jshint', 'karma:server:run']
         }
       },
-      bower: {
+      bowerRequirejs: {
         tests: {
           rjsConfig: 'spec/test-main.js',
           options: {
