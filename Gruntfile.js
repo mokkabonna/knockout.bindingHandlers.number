@@ -29,7 +29,7 @@
       },
       bowerVerify: {
         test: {
-          tasks: ['bower', 'karma:once']
+          tasks: ['bowerRequirejs', 'karma:once']
         }
       },
       karma: {
